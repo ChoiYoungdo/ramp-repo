@@ -1,0 +1,344 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+
+body, h1, h2,h3.h4,h5,h6,p{
+  font-family: 'Open Sans', sans-serif;
+}
+
+body::-webkit-scrollbar, .shop-content::-webkit-scrollbar{
+  display: none;
+}
+// start global styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// start carousel ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.carousel-container{
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  .logo{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 35%;
+    background-image: url(/images/ramp-logo3.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    @include mQ(768px) {
+      width: 80%;
+      margin: 0 10%;
+    }
+  }
+  .carousel-mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .mask-shape1,.mask-shape2{
+    background-color: #fff;
+    width: 70%;
+    height: 15vw;
+    position: absolute;
+    bottom: -25%;
+    z-index: 100;
+    box-shadow: 0 -1px 5px 1px #b4b4b4;
+    @include mQ(768px) {
+      bottom: -13%;
+      height: 25vw;
+    }
+    @include mQ(414px) {
+      bottom: -10%;
+    }
+    @include mQ(320px) {
+      bottom: -12%;
+    }
+  }
+  .mask-shape1{
+    transform: rotate(10deg);
+    left: -5%;
+    @include mQ(768px) {
+      transform: rotate(20deg);
+      left: -8%;
+    }
+  }
+  .mask-shape2{
+    right: -5%;
+    transform: rotate(-10deg);
+    @include mQ(768px) {
+      transform: rotate(-20deg);
+      right: -8%;
+    }
+  }
+  .arrow{
+    background-color: #fff;
+    border: 6px solid #000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5%;
+    z-index: 101;
+    text-decoration: none;
+    .fa{
+      font-size: 36px;
+      font-weight: bold;
+      color: #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      animation: arrowDown ease-in-out 0.5s infinite;
+
+      @keyframes arrowDown{
+        0%{
+          top: 50%;
+        }
+        50%{
+          top: 58%;
+        }
+        100%{
+          top: 50%;
+        }
+      }
+    }
+  }
+  .carousel{
+    height: 100%;
+  }
+  .carousel-inner{
+    height: 100%;
+  }
+  .item{
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position:top center;
+    background-size: 100% auto;
+    @include mQ(768px){
+      background-size: auto 100%;
+    }
+  }
+  #slide1{
+    background-image: url(/images/banner1.jpg);
+    @include mQ(768px){
+      background-position: 20% center;
+    }
+  }
+  #slide2{
+    background-image: url(/images/banner2.jpg);
+  }
+  #slide3{
+    background-image: url(/images/banner3.jpg);
+    @include mQ(768px){
+      background-position: left center;
+    }
+    @include mQ(414px){
+      background-position: 8% center;
+    }
+  }
+  #slide4{
+    background-image: url(/images/banner4.jpg);
+  }
+
+  .carousel-control{
+    z-index: 101;
+    background: transparent;
+    color: #111111;
+    width: 10%;
+    span{
+      font-size: 56px;
+    }
+  }
+
+} // end carousel ~~
+
+// start nav-bar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.nav-bar{
+  width: 100%;
+  height: 8vh;
+  box-shadow: 0 2px 5px 0.3px #b4b4b4;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 105;
+  background-color: #fff;
+  .container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .logo{
+    background-image: url(/images/ramp-logo3-noLine.svg);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% auto;
+    width: 10vw;
+    height: 100%;
+    position: absolute;
+    @include mQ(768px) {
+      width: 20vw;
+    }
+    @include mQ(600px) {
+      width: 25vw;
+      margin-left: 5%;
+    }
+  }
+  .menu-nav{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    @include mQ(600px) {
+      right: 5%;
+    }
+  }
+  li{
+    display: inline-block;
+    margin-left: 5vw;
+    height: 100%;
+  }
+  a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include mQ(600px) {
+      font-size: 12px;
+    }
+    @include mQ(414px) {
+      font-size: 10px;
+    }
+    @include mQ(320px) {
+      font-size: 8px;
+    }
+  }
+} // end nav-bar ~~
+
+// start shop ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.shop-container{
+  height: 92vh;
+  position: relative;
+  .shop-menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 1px solid #e4e4e4; // del
+    width: 15%;
+    height: 100%;
+    @include mQ(768px) {
+      width: 20%;
+    }
+    @include mQ(600px) {
+      width: 25%;
+    }
+    ul{
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+    li{
+      width: 100%;
+      padding: 10% 0;
+      cursor: pointer;
+      border-bottom: 1px solid #e4e4e4; // del
+    }
+    a{
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+      @include mQ(768px) {
+        font-size: 12px;
+      }
+      @include mQ(414px) {
+        font-size: 10px;
+      }
+      @include mQ(320px) {
+        font-size: 8px;
+      }
+    }
+  }
+  .shop-content{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 85%;
+    height: 100%;
+    overflow-y: scroll;
+    @include mQ(768px) {
+      width: 80%;
+    }
+    @include mQ(600px) {
+      width: 75%;
+    }
+    .row{
+      padding: 0;
+      margin: 0;
+    }
+    .col-sm-4{
+      text-align: center;
+      cursor: pointer;
+      margin: 1.5% 0;
+      @include mQ(600px) {
+      }
+    }
+    img{
+      width: 100%;
+      height: 100%;
+    }
+    h5{
+      @include mQ(768px) {
+        font-size: 12px;
+      }
+      @include mQ(414px) {
+        font-size: 10px;
+      }
+      @include mQ(320px) {
+        font-size: 8px;
+      }
+    }
+  }
+} // end shop ~~
+
+// start order ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.order{
+  border: 1px solid #f4f4f4;
+  padding: 5% 0;
+}
+
+// start footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+footer{
+  background-color: #f4f4f4;
+  text-align: center;
+  padding-top: 5%;
+  h2{
+    font-weight: 600;
+  }
+  p{
+    font-size: 12px;
+  }
+  ul{
+    margin: 1.5%;
+  }
+  li{
+    display: inline-block;
+    margin: 0 1.5%;
+    cursor: pointer;
+  }
+  a{
+    font-size: 38px;
+    text-decoration: none;
+    color: #000;
+  }
+  h5{
+    font-size: 10px;
+  }
+  hr{
+    border-color: #e1e1e1;
+  }
+}
